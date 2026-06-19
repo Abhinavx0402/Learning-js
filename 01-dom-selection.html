@@ -1,0 +1,77 @@
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h1 id="title">Welcome</h1>
+<p class="text">Hello</p>
+<p class="text">World</p>
+<button>Click</button>
+
+<script>
+  // Select the h1
+  let heading = document.querySelector("h1");
+  console.log("Heading:", heading.textContent);
+  // Output: Welcome
+  
+  // Select the first p
+  let firstP = document.querySelector("p");
+  console.log("First p:", firstP.textContent);
+  // Output: Hello
+  
+  // Select ALL p tags
+  let allP = document.querySelectorAll("p");
+  console.log("Number of p:", allP.length);
+  // Output: 2
+  console.log("First p text:", allP[0].textContent);  // Hello
+  console.log("Second p text:", allP[1].textContent); // World
+  
+  // Select by class
+  let textElements = document.querySelectorAll(".text");
+  console.log("Elements with .text class:", textElements.length);
+  // Output: 2
+  
+  // Select by ID
+  let titleElement = document.querySelector("#title");
+  console.log("Title:", titleElement.textContent);
+  // Output: Welcome
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My Page</h1>
+<p class="intro">Intro 1</p>
+<p class="intro">Intro 2</p>
+<div id="special">Special div</div>
+<button id="btn">Button</button>
+
+<script>
+  // Try these in console (F12):
+  
+  // 1. Select h1
+  let h1 = document.querySelector("h1");
+  console.log(h1);
+  
+  // 2. Select all p
+  let allP = document.querySelectorAll("p");
+  console.log(allP.length);  // Should print 2
+  
+  // 3. Select by class
+  let intros = document.querySelectorAll(".intro");
+  console.log(intros[0].textContent);  // Should print "Intro 1"
+  
+  // 4. Select by ID
+  let special = document.querySelector("#special");
+  console.log(special.textContent);  // Should print "Special div"
+  
+  // 5. Select button
+  let button = document.querySelector("button");
+  console.log(button);
+</script>
+
+</body>
+</html>
