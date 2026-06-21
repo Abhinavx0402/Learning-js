@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    
+    .box {
+      width: 200px;
+      padding: 20px;
+      margin: 20px 0;
+      background: lightblue;
+      border: 2px solid blue;
+      border-radius: 5px;
+      text-align: center;
+    }
+    
+    .highlight {
+      background: yellow;
+      font-weight: bold;
+      border-color: orange;
+    }
+    
+    .danger {
+      background: red;
+      color: white;
+      border-color: darkred;
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<h1>Classes Demo</h1>
+
+<div id="box" class="box">My Box</div>
+
+<button id="addBtn">Add highlight</button>
+<button id="removeBtn">Remove highlight</button>
+<button id="toggleBtn">Toggle danger</button>
+<button id="hideBtn">Toggle hidden</button>
+<button id="checkBtn">Check classes</button>
+
+<p id="info"></p>
+
+<script>
+  let box = document.getElementById("box");
+  let info = document.getElementById("info");
+  
+  // ===== ADD CLASS =====
+  document.getElementById("addBtn").addEventListener("click", function() {
+    box.classList.add("highlight");
+    info.textContent = "Added 'highlight' class";
+  });
+  
+  // ===== REMOVE CLASS =====
+  document.getElementById("removeBtn").addEventListener("click", function() {
+    box.classList.remove("highlight");
+    info.textContent = "Removed 'highlight' class";
+  });
+  
+  // ===== TOGGLE CLASS =====
+  document.getElementById("toggleBtn").addEventListener("click", function() {
+    box.classList.toggle("danger");
+    info.textContent = "Toggled 'danger' class";
+  });
+  
+  // ===== TOGGLE HIDDEN =====
+  document.getElementById("hideBtn").addEventListener("click", function() {
+    box.classList.toggle("hidden");
+    info.textContent = "Toggled 'hidden' class";
+  });
+  
+  // ===== CHECK IF CLASS EXISTS =====
+  document.getElementById("checkBtn").addEventListener("click", function() {
+    let hasHighlight = box.classList.contains("highlight");
+    let hasDanger = box.classList.contains("danger");
+    let hasHidden = box.classList.contains("hidden");
+    
+    info.innerHTML = `
+      Has 'highlight': ${hasHighlight}<br>
+      Has 'danger': ${hasDanger}<br>
+      Has 'hidden': ${hasHidden}
+    `;
+  });
+</script>
+
+</body>
+</html>

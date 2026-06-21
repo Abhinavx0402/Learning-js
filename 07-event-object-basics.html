@@ -1,0 +1,58 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+    input { padding: 10px; width: 300px; margin: 10px 0; }
+    .info { background: #f0f0f0; padding: 15px; margin: 10px 0; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+
+<h1>Event Object Basics</h1>
+
+Button Click -->
+<h3>Click Button - See event object:</h3>
+<button id="btn">Click Me</button>
+<div id="btnInfo" class="info"></div>
+
+<!-- Input -->
+<h3>Type in input - See event object:</h3>
+<input type="text" id="input" placeholder="Type something">
+<div id="inputInfo" class="info"></div>
+
+<script>
+  // ===== BUTTON CLICK - EVENT OBJECT =====
+  document.getElementById("btn").addEventListener("click", function(event) {
+    console.log("Full event object:", event);
+    
+    let info = `
+EVENT OBJECT PROPERTIES:
+type: ${event.type}                    (what event happened)
+target: ${event.target.tagName}        (which element triggered it)
+timeStamp: ${event.timeStamp}          (when it happened)
+bubbles: ${event.bubbles}              (will it bubble up?)
+cancelable: ${event.cancelable}        (can we stop it?)
+currentTarget: ${event.currentTarget.tagName}
+isTrusted: ${event.isTrusted}          (real user action?)
+    `;
+    
+    document.getElementById("btnInfo").textContent = info;
+  });
+  
+  // ===== INPUT - EVENT OBJECT =====
+  document.getElementById("input").addEventListener("input", function(event) {
+    let info = `
+INPUT EVENT OBJECT:
+type: ${event.type}
+target value: ${event.target.value}    (what user typed)
+target type: ${event.target.type}      (input type)
+    `;
+    
+    document.getElementById("inputInfo").textContent = info;
+  });
+</script>
+
+</body>
+</html>

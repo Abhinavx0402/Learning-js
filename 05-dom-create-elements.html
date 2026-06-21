@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    
+    .container {
+      max-width: 500px;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    
+    .item {
+      background: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-left: 4px solid #3498db;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .delete-btn {
+      background: #e74c3c;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .delete-btn:hover {
+      background: #c0392b;
+    }
+    
+    input {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 300px;
+    }
+    
+    button {
+      padding: 10px 20px;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    
+    button:hover {
+      background: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>📝 My List</h1>
+  
+  <!-- Input section -->
+  <div>
+    <input type="text" id="itemInput" placeholder="Enter item name...">
+    <button id="addBtn">Add Item</button>
+  </div>
+  
+  <!-- List section -->
+  <div id="itemList"></div>
+</div>
+
+<script>
+  let itemInput = document.getElementById("itemInput");
+  let addBtn = document.getElementById("addBtn");
+  let itemList = document.getElementById("itemList");
+  
+  // ===== ADD ITEM =====
+  addBtn.addEventListener("click", function() {
+    let itemText = itemInput.value.trim();
+    
+    // Validate input
+    if (itemText === "") {
+      alert("Please enter something!");
+      return;
+    }
+    
+    // ===== CREATE NEW ELEMENT =====
+    let newItem = document.createElement("div");
+    newItem.className = "item";
+    newItem.textContent = itemText;
+    
+    // ===== CREATE DELETE BUTTON =====
+    let deleteBtn = document.createElement("button");
+    deleteBtn.className = "delete-btn";
+    deleteBtn.textContent = "Delete";
+    
+    // ===== DELETE FUNCTIONALITY =====
+    deleteBtn.addEventListener("click", function() {
+      newItem.remove();  // Remove the item
+    });
+    
+    // ===== ADD BUTTON TO ITEM =====
+    newItem.appendChild(deleteBtn);
+    
+    // ===== ADD ITEM TO LIST =====
+    itemList.appendChild(newItem);
+    
+    // ===== CLEAR INPUT =====
+    itemInput.value = "";
+    
+    // ===== FOCUS INPUT =====
+    itemInput.focus();
+  });
+  
+  // ===== ALLOW ENTER KEY =====
+  itemInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      addBtn.click();
+    }
+  });
+</script>
+
+</body>
+</html>

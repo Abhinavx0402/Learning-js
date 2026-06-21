@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    button { padding: 10px 20px; margin: 5px; cursor: pointer; background: #3498db; color: white; border: none; }
+    #box { background: lightblue; padding: 20px; margin: 20px 0; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+<h1 id="heading">Original Heading</h1>
+<p id="text">Original paragraph</p>
+<div id="box">Original content</div>
+
+<button id="btn1">Change Text</button>
+<button id="btn2">Change with HTML</button>
+<button id="btn3">Add Info</button>
+<button id="btn4">Reset</button>
+
+<script>
+  // Select elements
+  let heading = document.getElementById("heading");
+  let text = document.getElementById("text");
+  let box = document.getElementById("box");
+  
+  // ===== BUTTON 1: Change with textContent =====
+  document.getElementById("btn1").addEventListener("click", function() {
+    heading.textContent = "Changed Heading!";
+    text.textContent = "This is changed text.";
+  });
+  
+  // ===== BUTTON 2: Change with innerHTML =====
+  document.getElementById("btn2").addEventListener("click", function() {
+    text.innerHTML = "This is <strong>bold</strong> and <em>italic</em>";
+    // Now the text has HTML formatting
+  });
+  
+  // ===== BUTTON 3: Add Info =====
+  document.getElementById("btn3").addEventListener("click", function() {
+    let name = "Piyush";
+    let age = 20;
+    box.innerHTML = `
+      <h3>User Info</h3>
+      <p>Name: ${name}</p>
+      <p>Age: ${age}</p>
+      <p style="color: green;">Welcome!</p>
+    `;
+  });
+  
+  // ===== BUTTON 4: Reset =====
+  document.getElementById("btn4").addEventListener("click", function() {
+    heading.textContent = "Original Heading";
+    text.textContent = "Original paragraph";
+    box.innerHTML = "Original content";
+  });
+</script>
+
+</body>
+</html>

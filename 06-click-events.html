@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    button { padding: 10px 20px; margin: 5px; cursor: pointer; background: #3498db; color: white; border: none; }
+    .box { padding: 20px; margin: 20px 0; background: lightblue; border-radius: 5px; }
+    .info { background: #f0f0f0; padding: 15px; margin: 10px 0; }
+  </style>
+</head>
+<body>
+
+<h1>Event Handling Basics</h1>
+
+<!-- METHOD 1: In HTML -->
+<h3>Method 1: In HTML Attribute</h3>
+<button onclick="handleClick1()">Click Me (Method 1)</button>
+<div id="info1" class="info"></div>
+
+<!-- METHOD 2: addEventListener -->
+<h3>Method 2: addEventListener (BEST)</h3>
+<button id="btn2">Click Me (Method 2)</button>
+<div id="info2" class="info"></div>
+
+<!-- METHOD 3: Direct assignment -->
+<h3>Method 3: Direct Assignment (Old)</h3>
+<button id="btn3">Click Me (Method 3)</button>
+<div id="info3" class="info"></div>
+
+<script>
+  // ===== METHOD 1: In HTML =====
+  function handleClick1() {
+    document.getElementById("info1").textContent = "You clicked using Method 1!";
+  }
+  
+  // ===== METHOD 2: addEventListener (RECOMMENDED) =====
+  document.getElementById("btn2").addEventListener("click", function() {
+    document.getElementById("info2").textContent = "You clicked using Method 2!";
+  });
+  
+  // ===== METHOD 3: Direct assignment (Old way) =====
+  document.getElementById("btn3").onclick = function() {
+    document.getElementById("info3").textContent = "You clicked using Method 3!";
+  };
+</script>
+
+</body>
+</html>
